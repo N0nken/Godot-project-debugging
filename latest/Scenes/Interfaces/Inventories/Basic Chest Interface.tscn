@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Themes/button/standardTextFont.tres" type="Theme" id=1]
+
+[node name="ChestInterface" type="Node"]
+
+[node name="Control" type="Control" parent="."]
+anchor_left = 0.005
+anchor_top = 0.005
+anchor_right = 0.297
+anchor_bottom = 0.994
+margin_left = -0.6
+margin_top = -0.400001
+margin_right = 0.759827
+margin_bottom = -3.52002
+
+[node name="Appearance" type="Node" parent="Control"]
+
+[node name="Rectangles" type="Node" parent="Control/Appearance"]
+
+[node name="ColorRect2" type="ColorRect" parent="Control/Appearance/Rectangles"]
+margin_right = 575.0
+margin_bottom = 1080.0
+rect_pivot_offset = Vector2( -397, -23 )
+
+[node name="ColorRect" type="ColorRect" parent="Control/Appearance/Rectangles/ColorRect2"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 572.0
+margin_bottom = 1077.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Labels" type="Node" parent="Control/Appearance"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Appearance/Labels"]
+margin_left = 7.0
+margin_top = 6.0
+margin_right = 317.0
+margin_bottom = 33.0
+theme = ExtResource( 1 )
+text = "Chest"
+
+[node name="Inventories" type="Node" parent="Control"]
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/Inventories"]
+anchor_left = 0.011
+anchor_top = 0.03
+anchor_right = 0.334
+anchor_bottom = 0.994
+margin_left = -0.120001
+margin_top = -0.400002
+margin_right = 0.719971
+margin_bottom = -0.52002
+follow_focus = true
+
+[node name="ChestList" type="VBoxContainer" parent="Control/Inventories/ScrollContainer"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Dungeon Gen/DungeonFloor.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Areas/Dungeon Gen/Dungeon Generation.tscn" type="PackedScene" id=2]
+
+[node name="Dungeon" type="Node"]
+
+[node name="DungeonFloor" type="Node" parent="."]
+script = ExtResource( 1 )
+dungeonGen = ExtResource( 2 )
+
+[node name="Basic Scene Properties" type="Node" parent="."]
+
+[node name="Player Positions" type="Node" parent="Basic Scene Properties"]
+
+[node name="Player Position" type="Position2D" parent="Basic Scene Properties/Player Positions"]
+
+[node name="Player Start Position" type="Position2D" parent="Basic Scene Properties/Player Positions"]
+position = Vector2( 756, 709 )
+
+[node name="Enemies" type="Node" parent="Basic Scene Properties"]

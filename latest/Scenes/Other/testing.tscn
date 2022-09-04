@@ -1,0 +1,124 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scripts/Other/testing/testPlayer.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Other/Generic Enemy Projectile.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Enemies/Tier 1/Dasher.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Enemies/Tier 1/Pistoleer.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 20, 20 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 286.52 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 17, 626 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 1019.5, 18 )
+
+[node name="testing" type="Node"]
+
+[node name="Player" type="Node" parent="."]
+
+[node name="ActualPlayer" type="KinematicBody2D" parent="Player"]
+position = Vector2( 121, 454 )
+collision_layer = 5
+collision_mask = 3
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Player/ActualPlayer"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/ActualPlayer"]
+position = Vector2( 20, 20 )
+shape = SubResource( 1 )
+
+[node name="Generic Enemy Projectile" parent="." instance=ExtResource( 2 )]
+position = Vector2( 167, 38 )
+
+[node name="Dasher" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1809, 456 )
+collision_mask = 1
+
+[node name="KinematicBody2D" parent="." instance=ExtResource( 4 )]
+position = Vector2( 502, 897 )
+
+[node name="environment" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="environment"]
+position = Vector2( 943, 492 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/StaticBody2D"]
+position = Vector2( 0, 14.5 )
+shape = SubResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="environment/StaticBody2D"]
+margin_left = -11.0
+margin_top = -268.0
+margin_right = 11.0
+margin_bottom = 296.0
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="environment"]
+position = Vector2( 687, 216 )
+rotation = 1.57758
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/StaticBody2D2"]
+position = Vector2( 0, 14.5 )
+shape = SubResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="environment/StaticBody2D2"]
+margin_left = -11.0
+margin_top = -268.0
+margin_right = 11.0
+margin_bottom = 296.0
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="environment"]
+
+[node name="ColorRect" type="ColorRect" parent="environment/StaticBody2D3"]
+margin_left = -16.0
+margin_top = -95.0
+margin_right = 24.0
+margin_bottom = 1285.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/StaticBody2D3"]
+position = Vector2( 5, 582 )
+shape = SubResource( 3 )
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="environment"]
+position = Vector2( 9, -23 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/StaticBody2D4"]
+position = Vector2( 936.5, 19 )
+shape = SubResource( 4 )
+
+[node name="ColorRect" type="ColorRect" parent="environment/StaticBody2D4"]
+margin_left = -86.0
+margin_right = 1957.0
+margin_bottom = 40.0
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="environment"]
+position = Vector2( 1918, -30 )
+
+[node name="ColorRect" type="ColorRect" parent="environment/StaticBody2D5"]
+margin_left = -16.0
+margin_top = -95.0
+margin_right = 24.0
+margin_bottom = 1285.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/StaticBody2D5"]
+position = Vector2( 5, 582 )
+shape = SubResource( 3 )
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="environment"]
+position = Vector2( 34, 1063 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="environment/StaticBody2D6"]
+position = Vector2( 936.5, 19 )
+shape = SubResource( 4 )
+
+[node name="ColorRect" type="ColorRect" parent="environment/StaticBody2D6"]
+margin_left = -86.0
+margin_right = 1957.0
+margin_bottom = 40.0

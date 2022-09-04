@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scripts/Other/Main.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Areas/Main Areas/Dungeon.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Areas/Main Areas/Home.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Areas/Main Areas/Hub.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Other/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sprites/Backgrounds/loadingscreen.jpg" type="Texture" id=7]
+[ext_resource path="res://Sprites/Backgrounds/gameover.jpg" type="Texture" id=8]
+
+[node name="Main" type="Node"]
+script = ExtResource( 1 )
+hub = ExtResource( 4 )
+home = ExtResource( 3 )
+dungeon = ExtResource( 2 )
+
+[node name="Current Scene" type="Node" parent="."]
+
+[node name="Hub" parent="Current Scene" instance=ExtResource( 4 )]
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Black Side Bars" type="Node" parent="UI"]
+
+[node name="ColorRect" type="ColorRect" parent="UI/Black Side Bars"]
+anchor_right = 0.125
+anchor_bottom = 1.0
+margin_left = -39.0
+margin_top = -96.0
+margin_bottom = 83.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="UI/Black Side Bars"]
+anchor_left = 0.877
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -3.84009
+margin_top = -51.0
+margin_right = 20.0
+margin_bottom = 26.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Currently Opened Chest" type="Node" parent="UI"]
+
+[node name="Pop-ups" type="Node" parent="UI"]
+
+[node name="screens" type="Node" parent="UI"]
+
+[node name="loadingscreen" type="Sprite" parent="UI/screens"]
+visible = false
+position = Vector2( 960, 540 )
+texture = ExtResource( 7 )
+
+[node name="Game Over" type="Sprite" parent="UI/screens"]
+visible = false
+position = Vector2( 960, 540 )
+texture = ExtResource( 8 )
+
+[node name="map" type="Camera2D" parent="."]
+zoom = Vector2( 5, 5 )
+
+[node name="PlayerCam" type="Camera2D" parent="."]
+position = Vector2( 960, 540 )
+current = true
+
+[connection signal="tree_entered" from="." to="." method="_on_Main_tree_entered"]

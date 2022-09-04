@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Themes/button/whiteOutline.tres" type="StyleBox" id=1]
+[ext_resource path="res://Themes/button/transparentButton.tres" type="StyleBox" id=2]
+[ext_resource path="res://Themes/button/standardTextFont.tres" type="Theme" id=3]
+[ext_resource path="res://Scripts/Interfaces/Inventory Item.gd" type="Script" id=4]
+
+[node name="Button" type="Button"]
+margin_right = 371.0
+margin_bottom = 25.0
+theme = ExtResource( 3 )
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 1 )
+custom_styles/focus = ExtResource( 1 )
+custom_styles/normal = ExtResource( 2 )
+align = 0
+script = ExtResource( 4 )
+
+[connection signal="button_down" from="." to="." method="_on_Button_button_down"]
+[connection signal="button_up" from="." to="." method="_on_Button_button_up"]
+[connection signal="focus_entered" from="." to="." method="_on_Button_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_Button_focus_exited"]
